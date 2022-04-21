@@ -71,6 +71,12 @@ playerRightImage.src = "assets/playerRight.png";
 const sensieImage = new Image();
 sensieImage.src = "assets/sensei.png";
 
+const treeRedImage = new Image();
+treeRedImage.src = "assets/treeRed.png";
+
+const treeBlueImage = new Image();
+treeBlueImage.src = "assets/treeBlue.png";
+
 const player = new Sprite({
     position: {
         x: canvas.width / 2 - 192 / 4 / 2,
@@ -104,6 +110,40 @@ boundaries.push(
         position: {
             x: canvas.width / 2 - 230,
             y: canvas.height / 2 + 90,
+        },
+    })
+);
+
+const treeRed = new Sprite({
+    image: treeRedImage,
+    position: {
+        x: canvas.width / 2 + 600,
+        y: canvas.height / 2 - 70,
+    },
+});
+
+boundaries.push(
+    new Boundary({
+        position: {
+            x: canvas.width / 2 + 600,
+            y: canvas.height / 2 - 70,
+        },
+    })
+);
+
+const treeBlue = new Sprite({
+    image: treeBlueImage,
+    position: {
+        x: canvas.width / 2 + 500,
+        y: canvas.height / 2 - 70,
+    },
+});
+
+boundaries.push(
+    new Boundary({
+        position: {
+            x: canvas.width / 2 + 500,
+            y: canvas.height / 2 - 70,
         },
     })
 );
@@ -144,6 +184,8 @@ const movables = [
     ...boundaries,
     foreground,
     sensei,
+    treeRed,
+    treeBlue,
     ...battleZones,
 ];
 
@@ -170,7 +212,11 @@ function animate() {
         battleZone.draw();
     });
     player.draw();
+
+    // Other stuff
     sensei.draw();
+    treeRed.draw();
+    treeBlue.draw();
 
     foreground.draw();
 

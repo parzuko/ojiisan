@@ -60,10 +60,6 @@ class Sprite {
             else this.frames.val = 0;
         }
     }
-
-    hi() {
-        alert("Ho ho ho");
-    }
 }
 
 class Monster extends Sprite {
