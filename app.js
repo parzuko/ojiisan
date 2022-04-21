@@ -77,6 +77,12 @@ treeRedImage.src = "assets/treeRed.png";
 const treeBlueImage = new Image();
 treeBlueImage.src = "assets/treeBlue.png";
 
+const chaiImage = new Image();
+chaiImage.src = "assets/chai.png";
+
+const swordImage = new Image();
+swordImage.src = "assets/asta.png";
+
 const player = new Sprite({
     position: {
         x: canvas.width / 2 - 192 / 4 / 2,
@@ -95,9 +101,11 @@ const player = new Sprite({
     },
 });
 
+// Adding assets on screen
+
 const senseiPositionFixed = {
-    x: canvas.width / 2 - 230,
-    y: canvas.height / 2 + 90,
+    x: canvas.width / 2 - 450,
+    y: canvas.height / 2 - 90,
 };
 
 const sensei = new Sprite({
@@ -108,8 +116,8 @@ const sensei = new Sprite({
 boundaries.push(
     new Boundary({
         position: {
-            x: canvas.width / 2 - 230,
-            y: canvas.height / 2 + 90,
+            x: canvas.width / 2 - 450,
+            y: canvas.height / 2 - 90,
         },
     })
 );
@@ -117,10 +125,44 @@ boundaries.push(
 const treeRed = new Sprite({
     image: treeRedImage,
     position: {
-        x: canvas.width / 2 + 600,
+        x: canvas.width / 2 + 1200,
         y: canvas.height / 2 - 70,
     },
 });
+
+boundaries.push(
+    new Boundary({
+        position: {
+            x: canvas.width / 2 + 1200,
+            y: canvas.height / 2 - 70,
+        },
+    })
+);
+
+const treeBlue = new Sprite({
+    image: treeBlueImage,
+    position: {
+        x: canvas.width / 2 + 1100,
+        y: canvas.height / 2 - 70,
+    },
+});
+
+boundaries.push(
+    new Boundary({
+        position: {
+            x: canvas.width / 2 + 1100,
+            y: canvas.height / 2 - 70,
+        },
+    })
+);
+
+const chai = new Sprite({
+    image: chaiImage,
+    position: {
+        x: canvas.width / 2 + 600,
+        y: canvas.height / 2 - 70,
+    },
+})
 
 boundaries.push(
     new Boundary({
@@ -131,22 +173,24 @@ boundaries.push(
     })
 );
 
-const treeBlue = new Sprite({
-    image: treeBlueImage,
+const sword = new Sprite({
+    image: swordImage,
     position: {
-        x: canvas.width / 2 + 500,
-        y: canvas.height / 2 - 70,
+        x: canvas.width / 2 + 650,
+        y: canvas.height / 2 + 350,
     },
-});
+})
 
 boundaries.push(
     new Boundary({
         position: {
-            x: canvas.width / 2 + 500,
-            y: canvas.height / 2 - 70,
+            x: canvas.width / 2 + 650,
+            y: canvas.height / 2 + 350,
         },
     })
 );
+
+// Finish assets adding
 
 const background = new Sprite({
     position: {
@@ -179,6 +223,7 @@ const keys = {
     },
 };
 
+// fixed items
 const movables = [
     background,
     ...boundaries,
@@ -186,6 +231,8 @@ const movables = [
     sensei,
     treeRed,
     treeBlue,
+    sword,
+    chai,
     ...battleZones,
 ];
 
@@ -217,6 +264,8 @@ function animate() {
     sensei.draw();
     treeRed.draw();
     treeBlue.draw();
+    chai.draw();
+    sword.draw();
 
     foreground.draw();
 
