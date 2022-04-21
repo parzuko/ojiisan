@@ -300,7 +300,7 @@ function animate() {
         } else {
             document.querySelector("#userInterface").style.display = "none";
             document.querySelector("#healthBar").style.display = "block";
-            document.querySelector("#ourHealthBar").style.display = "blovk";
+            document.querySelector("#ourHealthBar").style.display = "block";
             dialogue.style.display = "none";
         }
     }
