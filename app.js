@@ -1,5 +1,35 @@
 const canvas = document.querySelector("canvas");
+const loadingImage = document.querySelector(".loadingImage");
 const c = canvas.getContext("2d");
+
+
+// setTimeout(() => {
+//     loadingImage.style.display = "none";
+// }, 1000);
+
+function fadeInImage(el) {
+    el.style.opacity = 0;
+    var tick = function () {
+        el.style.opacity = +el.style.opacity + 0.01;
+        if (+el.style.opacity < 1) {
+            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+        }
+    };
+    tick();
+}
+
+function fadeOutImage(el) {
+    el.style.opacity = 1;
+    var tick = function () {
+        el.style.opacity -= 0.003;
+        if (+el.style.opacity < 1) {
+            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+        }
+    };
+    tick();
+}
+
+fadeOutImage(loadingImage);
 
 canvas.width = 1024;
 canvas.height = 576;
@@ -52,6 +82,7 @@ battleZonesMap.forEach((row, i) => {
 
 const image = new Image();
 image.src = "assets/island.png";
+
 
 const foregroundImage = new Image();
 foregroundImage.src = "assets/foregroundObjects.png";
@@ -266,8 +297,10 @@ function animate() {
     treeBlue.draw();
     chai.draw();
     sword.draw();
-
+    // Finish 
     foreground.draw();
+    
+
 
     let moving = true;
     player.animate = false;
