@@ -306,20 +306,18 @@ function animate() {
 
     if (battle.initiated) return;
 
-    // interact with sensei
     let i = 0;
     if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
         const dialogue = document.querySelector("#dialogueBox");
+        document.querySelector("#userInterface").style.display = "block";
+        dialogue.style.display = "block";
+        // interact with sensei
         if (
             rectangularCollision({
                 rectangle1: player,
                 rectangle2: sensei,
             })
         ) {
-            document.querySelector("#userInterface").style.display = "block";
-            document.querySelector("#healthBar").style.display = "none";
-            document.querySelector("#ourHealthBar").style.display = "none";
-            dialogue.style.display = "block";
             const convo = [
                 "You shall not pass, but do click mOI",
                 "You don't belong here",
@@ -329,28 +327,12 @@ function animate() {
             dialogue.addEventListener("click", () => {
                 dialogue.innerHTML = convo[i++ % convo.length];
             });
-        } else {
-            document.querySelector("#userInterface").style.display = "none";
-            document.querySelector("#healthBar").style.display = "block";
-            document.querySelector("#ourHealthBar").style.display = "block";
-            dialogue.style.display = "none";
-        }
-    }
-
-    // Interact with sword
-    if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
-        const dialogue = document.querySelector("#dialogueBox");
-        if (
+        } else if (
             rectangularCollision({
                 rectangle1: player,
                 rectangle2: sword,
             })
         ) {
-            document.querySelector("#userInterface").style.display = "block";
-            document.querySelector("#healthBar").style.display = "none";
-            document.querySelector("#ourHealthBar").style.display = "none";
-            dialogue.style.display = "block";
-
             dialogue.innerHTML =
                 "This is the Sword of Elders Past. Use it wisely. It can eventually belong to you. Or does it already?";
 
@@ -359,9 +341,6 @@ function animate() {
             });
         } else {
             document.querySelector("#userInterface").style.display = "none";
-            document.querySelector("#healthBar").style.display = "block";
-            document.querySelector("#ourHealthBar").style.display = "block";
-            dialogue.style.display = "none";
         }
     }
 
