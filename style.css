@@ -11,3 +11,11 @@ body {
     display: block;
     position: absolute;
 }
+
+.winImage {
+    display: none;
+}
+
+.loseImage {
+    display: none;
+}
