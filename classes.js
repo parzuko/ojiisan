@@ -60,6 +60,15 @@ class Sprite {
             else this.frames.val = 0;
         }
     }
+
+    remove() {
+        gsap.to(this.position, {
+            y: this.position.y + 20,
+        });
+        gsap.to(this, {
+            opacity: 0,
+        });
+    }
 }
 
 class Monster extends Sprite {

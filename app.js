@@ -2,7 +2,6 @@ const canvas = document.querySelector("canvas");
 const loadingImage = document.querySelector(".loadingImage");
 const c = canvas.getContext("2d");
 
-
 // setTimeout(() => {
 //     loadingImage.style.display = "none";
 // }, 1000);
@@ -12,7 +11,8 @@ function fadeInImage(el) {
     var tick = function () {
         el.style.opacity = +el.style.opacity + 0.01;
         if (+el.style.opacity < 1) {
-            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+            (window.requestAnimationFrame && requestAnimationFrame(tick)) ||
+                setTimeout(tick, 16);
         }
     };
     tick();
@@ -22,14 +22,16 @@ function fadeOutImage(el) {
     el.style.opacity = 1;
     var tick = function () {
         el.style.opacity -= 0.003;
-        if (+el.style.opacity < 1) {
-            (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+        if (+el.style.opacity < 1 && +el.style.opacity > 0) {
+            (window.requestAnimationFrame && requestAnimationFrame(tick)) ||
+                setTimeout(tick, 16);
         }
     };
     tick();
 }
 
 fadeOutImage(loadingImage);
+loadingImage.style.display = "none";
 
 canvas.width = 1024;
 canvas.height = 576;
@@ -82,7 +84,6 @@ battleZonesMap.forEach((row, i) => {
 
 const image = new Image();
 image.src = "assets/island.png";
-
 
 const foregroundImage = new Image();
 foregroundImage.src = "assets/foregroundObjects.png";
@@ -193,7 +194,7 @@ const chai = new Sprite({
         x: canvas.width / 2 + 600,
         y: canvas.height / 2 - 70,
     },
-})
+});
 
 boundaries.push(
     new Boundary({
@@ -210,7 +211,7 @@ const sword = new Sprite({
         x: canvas.width / 2 + 650,
         y: canvas.height / 2 + 350,
     },
-})
+});
 
 boundaries.push(
     new Boundary({
@@ -297,10 +298,8 @@ function animate() {
     treeBlue.draw();
     chai.draw();
     sword.draw();
-    // Finish 
+    // Finish
     foreground.draw();
-    
-
 
     let moving = true;
     player.animate = false;
@@ -329,6 +328,34 @@ function animate() {
             dialogue.innerHTML = convo[0];
             dialogue.addEventListener("click", () => {
                 dialogue.innerHTML = convo[i++ % convo.length];
+            });
+        } else {
+            document.querySelector("#userInterface").style.display = "none";
+            document.querySelector("#healthBar").style.display = "block";
+            document.querySelector("#ourHealthBar").style.display = "block";
+            dialogue.style.display = "none";
+        }
+    }
+
+    // Interact with sword
+    if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
+        const dialogue = document.querySelector("#dialogueBox");
+        if (
+            rectangularCollision({
+                rectangle1: player,
+                rectangle2: sword,
+            })
+        ) {
+            document.querySelector("#userInterface").style.display = "block";
+            document.querySelector("#healthBar").style.display = "none";
+            document.querySelector("#ourHealthBar").style.display = "none";
+            dialogue.style.display = "block";
+
+            dialogue.innerHTML =
+                "This is the Sword of Elders Past. Use it wisely. It can eventually belong to you. Or does it already?";
+
+            dialogue.addEventListener("click", () => {
+                sword.remove();
             });
         } else {
             document.querySelector("#userInterface").style.display = "none";
