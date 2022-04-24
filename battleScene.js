@@ -1,3 +1,6 @@
+const winScreen = document.querySelector(".winImage");
+const loseScreen = document.querySelector(".loseImage");
+
 const battleBackgroundImage = new Image()
 battleBackgroundImage.src = 'assets/battleBackground.png'
 const battleBackground = new Sprite({
@@ -17,11 +20,14 @@ let queue
 function initBattle() {
   document.querySelector('#userInterface').style.display = 'block'
   document.querySelector('#dialogueBox').style.display = 'none'
+  document.querySelector('#ourHealthBar').style.display = 'block'
+  document.querySelector('#healthBar').style.display = 'block'
+  
   document.querySelector('#enemyHealthBar').style.width = '100%'
   document.querySelector('#playerHealthBar').style.width = '100%'
   document.querySelector('#attacksBox').replaceChildren()
 
-  draggle = new Monster(monsters.Draggle)
+  draggle = new Monster(monsters.Grandfather)
   emby = new Monster(monsters.Emby)
   renderedSprites = [draggle, emby]
   queue = []
@@ -53,7 +59,6 @@ function initBattle() {
             onComplete: () => {
               cancelAnimationFrame(battleAnimationId)
               animate()
-              document.querySelector('#userInterface').style.display = 'none'
 
               gsap.to('#overlappingDiv', {
                 opacity: 0
@@ -61,6 +66,12 @@ function initBattle() {
 
               battle.initiated = false
               audio.Map.play()
+
+              document.querySelector('#userInterface').style.display = 'none'
+              
+              loseScreen.style.display = 'block';
+              fadeInImage(loseScreen);
+
             }
           })
         })

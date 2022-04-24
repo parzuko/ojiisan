@@ -31,7 +31,10 @@ function fadeOutImage(el) {
 }
 
 fadeOutImage(loadingImage);
-loadingImage.style.display = "none";
+
+setTimeout(() => {
+    loadingImage.style.display = "none";
+}, 3000);
 
 canvas.width = 1024;
 canvas.height = 576;
@@ -354,6 +357,7 @@ function animate() {
                         rectangle2: sword,
                     })
                 ) {
+                    player.hasSword = true;
                     sword.remove();
                 }
             });
@@ -383,7 +387,7 @@ function animate() {
                     rectangle2: battleZone,
                 }) &&
                 overlappingArea > (player.width * player.height) / 2 &&
-                Math.random() < 0.01
+                Math.random() < 0.01 && player.hasSword
             ) {
                 // deactivate current animation loop
                 window.cancelAnimationFrame(animationId);

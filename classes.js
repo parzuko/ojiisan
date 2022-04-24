@@ -20,7 +20,7 @@ class Sprite {
         this.animate = animate;
         this.sprites = sprites;
         this.opacity = 1;
-
+        this.hasSword = false;
         this.rotation = rotation;
     }
 

@@ -14,8 +14,10 @@ body {
 
 .winImage {
     display: none;
+    position: absolute;
 }
 
 .loseImage {
     display: none;
+    position: absolute;
 }

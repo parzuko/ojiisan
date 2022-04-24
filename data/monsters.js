@@ -15,13 +15,13 @@ const monsters = {
     name: 'Emby',
     attacks: [attacks.Tackle, attacks.Fireball]
   },
-  Draggle: {
+  Grandfather: {
     position: {
       x: 800,
       y: 100
     },
     image: {
-      src: 'assets/draggleSprite.png'
+      src: 'assets/grandfather.png'
     },
     frames: {
       max: 4,
@@ -29,7 +29,7 @@ const monsters = {
     },
     animate: true,
     isEnemy: true,
-    name: 'Draggle',
+    name: 'Grandfather',
     attacks: [attacks.Tackle, attacks.Fireball]
   }
 }
