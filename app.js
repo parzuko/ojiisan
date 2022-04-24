@@ -195,19 +195,11 @@ boundaries.push(
 const chai = new Sprite({
     image: chaiImage,
     position: {
-        x: canvas.width / 2 + 600,
-        y: canvas.height / 2 - 20,
+        x: canvas.width / 2 + 800,
+        y: canvas.height / 2 - 200,
     },
 });
 
-boundaries.push(
-    new Boundary({
-        position: {
-            x: canvas.width / 2 + 600,
-            y: canvas.height / 2 - 20,
-        },
-    })
-);
 
 const sword = new Sprite({
     image: swordImage,
@@ -326,7 +318,7 @@ function animate() {
             const convo = [
                 "Hey! Welcome back old friend, we've been waiting for you.",
                 "Wait a second, you're not my friend Arnold. You sure do look like him, but your hair, it's a very different color.",
-                "The resemblance, no it can not be! This can onyly mean one thing! You, you are from the ...",
+                "The resemblance, no it can not be! This can only mean one thing! You, you are from the ...",
                 "You must leave immediately, and whatever you do; do not explore the grassy fields! DO NOT.",
                 "I better seal away that Sword, before it may fall into the wrong hands. Leave, run away now! I must go too!",
             ];
