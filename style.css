@@ -21,3 +21,14 @@ body {
     display: none;
     position: absolute;
 }
+
+.optionButton {
+    cursor: pointer;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+}
+
+.optionButton:hover {
+    background-color: yellow;
+}

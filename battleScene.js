@@ -1,4 +1,3 @@
-const winScreen = document.querySelector(".winImage");
 const loseScreen = document.querySelector(".loseImage");
 
 const battleBackgroundImage = new Image()

@@ -1,5 +1,6 @@
 const canvas = document.querySelector("canvas");
 const loadingImage = document.querySelector(".loadingImage");
+const winScreen = document.querySelector(".winImage");
 const c = canvas.getContext("2d");
 
 // setTimeout(() => {
@@ -336,6 +337,32 @@ function animate() {
                     })
                 ) {
                     dialogue.innerHTML = convo[i++ % convo.length];
+                    if (i > convo.length) {
+                        dialogue.innerHTML = "";
+
+                        const stayButton = document.createElement("div");
+                        stayButton.innerHTML = "Stay ?";
+                        stayButton.classList = "optionButton";
+                        stayButton.addEventListener("click", () => {
+                            sensei.remove();
+                            gsap.to(player.position, {
+                                x: player.position.x + 200,
+                            });
+                        });
+
+                        const leaveButton = document.createElement("div");
+                        leaveButton.innerHTML = "Leave ?";
+                        leaveButton.classList = "optionButton";
+                        leaveButton.addEventListener("click", () => {
+                            document.querySelector('#userInterface').style.display = 'none'
+                            winScreen.style.display = "block";
+                            
+                            fadeInImage(winScreen);
+                        });
+
+                        dialogue.appendChild(stayButton);
+                        dialogue.appendChild(leaveButton);
+                    }
                 }
             });
         } else if (
@@ -387,7 +414,8 @@ function animate() {
                     rectangle2: battleZone,
                 }) &&
                 overlappingArea > (player.width * player.height) / 2 &&
-                Math.random() < 0.01 && player.hasSword
+                Math.random() < 0.01 &&
+                player.hasSword
             ) {
                 // deactivate current animation loop
                 window.cancelAnimationFrame(animationId);
