@@ -29,7 +29,7 @@ const monsters = {
     },
     animate: true,
     isEnemy: true,
-    name: 'Grandfather',
+    name: 'Arnold | Grandfather',
     attacks: [attacks.Reconsider, attacks.Love]
   }
 }
