@@ -395,6 +395,32 @@ function animate() {
                     sword.remove();
                 }
             });
+        } else if (
+            rectangularCollision({
+                rectangle1: player,
+                rectangle2: chai,
+            })
+        ) {
+            document.querySelector("#userInterface").style.display = "block";
+            dialogue.style.display = "block";
+
+            dialogue.innerHTML =
+                "Hmm, this tea. Is this the same tea I had at home? Yes, it seems to have come here with me! But is it still the same? The properties are the same, but its location it has changed, so is it still the same?";
+        } else if (
+            rectangularCollision({
+                rectangle1: player,
+                rectangle2: treeBlue,
+            }) ||
+            rectangularCollision({
+                rectangle1: player,
+                rectangle2: treeRed,
+            })
+        ) {
+            document.querySelector("#userInterface").style.display = "block";
+            dialogue.style.display = "block";
+
+            dialogue.innerHTML =
+            "Hmm, these trees. They are both trees. They both have the same fruit too! But are they the same tree? Jeez, that is a very metaphysical question.";
         } else {
             document.querySelector("#userInterface").style.display = "none";
         }
