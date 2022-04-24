@@ -324,9 +324,11 @@ function animate() {
             document.querySelector("#userInterface").style.display = "block";
             dialogue.style.display = "block";
             const convo = [
-                "You shall not pass, but do click mOI",
-                "You don't belong here",
-                "Thanks for interacting with me",
+                "Hey! Welcome back old friend, we've been waiting for you.",
+                "Wait a second, you're not my friend Arnold. You sure do look like him, but your hair, it's a very different color.",
+                "The resemblance, no it can not be! This can onyly mean one thing! You, you are from the ...",
+                "You must leave immediately, and whatever you do; do not explore the grassy fields! DO NOT.",
+                "I better seal away that Sword, before it may fall into the wrong hands. Leave, run away now! I must go too!"
             ];
             dialogue.innerHTML = convo[0];
             dialogue.addEventListener("click", () => {
@@ -348,6 +350,7 @@ function animate() {
                             gsap.to(player.position, {
                                 x: player.position.x + 200,
                             });
+                            document.querySelector('#userInterface').style.display = 'none'
                         });
 
                         const leaveButton = document.createElement("div");
@@ -356,7 +359,6 @@ function animate() {
                         leaveButton.addEventListener("click", () => {
                             document.querySelector('#userInterface').style.display = 'none'
                             winScreen.style.display = "block";
-                            
                             fadeInImage(winScreen);
                         });
 
