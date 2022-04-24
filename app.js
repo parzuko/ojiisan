@@ -328,7 +328,7 @@ function animate() {
                 "Wait a second, you're not my friend Arnold. You sure do look like him, but your hair, it's a very different color.",
                 "The resemblance, no it can not be! This can onyly mean one thing! You, you are from the ...",
                 "You must leave immediately, and whatever you do; do not explore the grassy fields! DO NOT.",
-                "I better seal away that Sword, before it may fall into the wrong hands. Leave, run away now! I must go too!"
+                "I better seal away that Sword, before it may fall into the wrong hands. Leave, run away now! I must go too!",
             ];
             dialogue.innerHTML = convo[0];
             dialogue.addEventListener("click", () => {
@@ -348,16 +348,21 @@ function animate() {
                         stayButton.addEventListener("click", () => {
                             sensei.remove();
                             gsap.to(player.position, {
-                                x: player.position.x + 200,
+                                x: player.position.x + 100,
+                                y: player.position.y + 50,
                             });
-                            document.querySelector('#userInterface').style.display = 'none'
+                            document.querySelector(
+                                "#userInterface"
+                            ).style.display = "none";
                         });
 
                         const leaveButton = document.createElement("div");
                         leaveButton.innerHTML = "Leave ?";
                         leaveButton.classList = "optionButton";
                         leaveButton.addEventListener("click", () => {
-                            document.querySelector('#userInterface').style.display = 'none'
+                            document.querySelector(
+                                "#userInterface"
+                            ).style.display = "none";
                             winScreen.style.display = "block";
                             fadeInImage(winScreen);
                         });
@@ -377,7 +382,7 @@ function animate() {
             dialogue.style.display = "block";
 
             dialogue.innerHTML =
-                "This is the Sword of Elders Past. Use it wisely. It can eventually belong to you. Or does it already?";
+                "This is the Sword of Elders Past. Use it wisely. It can eventually belong to you. Or does it already? Go into the barren land and grass and complete your destiny!";
 
             dialogue.addEventListener("click", () => {
                 if (

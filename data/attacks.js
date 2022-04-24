@@ -1,14 +1,20 @@
 const attacks = {
-  Tackle: {
-    name: 'Tackle',
-    damage: 10,
-    type: 'Normal',
-    color: 'black'
+  Reconsider: {
+    name: 'Reconsider',
+    damage: 5,
+    type: 'Psychic',
+    color: 'pink'
   },
-  Fireball: {
-    name: 'Fireball',
-    damage: 25,
-    type: 'Fire',
+  Flamethrower: {
+    name: 'Flamethrower',
+    damage: 50,
+    type: 'Destruction',
+    color: 'red'
+  },
+  Love: {
+    name: 'Love',
+    damage: 10,
+    type: 'Destruction',
     color: 'red'
   }
 }

@@ -5,15 +5,15 @@ const monsters = {
       y: 325
     },
     image: {
-      src: 'assets/embySprite.png'
+      src: 'assets/astaDance.png'
     },
     frames: {
       max: 4,
       hold: 30
     },
     animate: true,
-    name: 'Emby',
-    attacks: [attacks.Tackle, attacks.Fireball]
+    name: 'You',
+    attacks: [attacks.Reconsider, attacks.Flamethrower]
   },
   Grandfather: {
     position: {
@@ -30,6 +30,6 @@ const monsters = {
     animate: true,
     isEnemy: true,
     name: 'Grandfather',
-    attacks: [attacks.Tackle, attacks.Fireball]
+    attacks: [attacks.Reconsider, attacks.Love]
   }
 }
