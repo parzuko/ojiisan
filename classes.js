@@ -101,7 +101,7 @@ class Monster extends Sprite {
 
     faint() {
         document.querySelector("#dialogueBox").innerHTML =
-            this.name + " fainted!";
+            this.name + " died!";
         gsap.to(this.position, {
             y: this.position.y + 20,
         });

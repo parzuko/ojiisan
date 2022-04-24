@@ -196,7 +196,7 @@ const chai = new Sprite({
     image: chaiImage,
     position: {
         x: canvas.width / 2 + 600,
-        y: canvas.height / 2 - 70,
+        y: canvas.height / 2 - 50,
     },
 });
 
@@ -204,7 +204,7 @@ boundaries.push(
     new Boundary({
         position: {
             x: canvas.width / 2 + 600,
-            y: canvas.height / 2 - 70,
+            y: canvas.height / 2 - 50,
         },
     })
 );
